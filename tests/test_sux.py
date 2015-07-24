@@ -1,7 +1,11 @@
 import unittest
-import sunshine
+from sunshine import Sunshine
 
 class SunshineTest(unittest.TestCase):
 
-    def test_sun_actions(self):
-        self.assertIn('incinerates',sunshine.Sunshine.get_sunshine_action)
+    def setUp(self):
+        self.sunshine = Sunshine()
+
+    def runTest(self):
+        temperaments = ['benevolent', 'cranky', 'evil']
+        self.assertIn(self.sunshine.temperament,temperaments)
